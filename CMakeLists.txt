@@ -7,14 +7,9 @@ enable_testing()
 file(GLOB source_dir
      "./src/*.cpp"
 )
-file(GLOB header_dir
-     "./headers/*.h"
-)
 
-set(HEADER_FILES ${header_dir})
-
-add_executable(helloworld ${source_dir} ${header_dir})
-include_directories()
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/headers")
+add_executable(helloworld ${source_dir})
 
 set_property(TARGET helloworld PROPERTY CXX_STANDARD 17)
-target_include_directories(helloworld PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/headers")
+
